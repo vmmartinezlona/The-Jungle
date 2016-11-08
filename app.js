@@ -5,12 +5,24 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var products = require('./routes/products');
 
 var app = express();
+
+// Connect to database
+mongoose.connect('mongodb://localhost/products');
+
+var db = mongoose.connection;
+
+db.on('error', console.log.bind(console, 'connection error:'));
+
+db.once('open', function() {
+  console.log('Connection Success');
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
