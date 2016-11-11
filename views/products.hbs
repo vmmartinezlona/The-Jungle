@@ -2,14 +2,16 @@
   <div class"col-md-12">
    <h1>End Point de productos</h1>
    <h2>{{title}}</h2>
+ </div>
+</div>
 
-   <ul>
-     {{#each animals}}
-     <li> 
-       {{this}}
-     </li> 
-     {{/each}}
-   </ul>
+<div class="row">
+  {{#each products}}
+  <div class="col-md-4">
+   <h2>{{this.name}}</h2>
+   <img src="{{this.photo}}" class="img-responsive" alt="{{this.name}}">
+   <p>Stock: {{this.stock}}</p>
+ </div>
+ {{/each}}
 
-  </div>
 </div>
