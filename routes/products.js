@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Product = require('../models/Product.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,6 +9,21 @@ router.get('/', function(req, res, next) {
     title: 'PRODUCTS',
     animals: animalList
   });
+});
+
+router.post('/', function(req, res) {
+	console.log(req.body);
+
+	var product = new Product({
+		name: req.body.name,
+		photo: req.body.photo,
+		stock: req.body.stock
+	});
+
+	product.save();
+
+	res.send('OK');
+
 });
 
 module.exports = router;

@@ -7,4 +7,4 @@ var productSchema = new Schema({
 	stock: Number
 });
 
-module.export = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Product', productSchema);
