@@ -6,6 +6,23 @@
 </div>
 
 <div class="row">
+ <div class="col-md-12">
+   <form action="/products" method="POST">
+     <label for="name">Name</label>
+     <input id="name" name="name" type="text">
+     <br>
+     <label for="photo">Photo</label>
+     <input id="photo" name="photo" type="text">
+     <br>
+     <label for="stock">Stock</label>
+     <input id="stock" name="stock" type="text">
+     <br>
+     <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+ </div>
+</div>
+
+<div class="row">
   {{#each products}}
   <div class="col-md-4">
    <h2>{{this.name}}</h2>
