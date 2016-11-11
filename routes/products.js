@@ -40,9 +40,26 @@ router.post('/', function(req, res) {
 		stock: req.body.stock
 	});
 
-	product.save();
+	product.save(function(error, product) {
+		if(error) {
+			res.send(500, error.message);
+		}
 
-	res.send('OK');
+		Product.find(function(error, productList) {
+
+			if(error) {
+				res.send(500, error.message);
+			}
+
+			res.render('products', {
+				title: 'PRODUCTS',
+				products: productList
+			});
+
+
+		});
+	});
+
 
 });
 
