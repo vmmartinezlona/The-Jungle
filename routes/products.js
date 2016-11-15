@@ -25,10 +25,6 @@ router.get('/', function(req, res, next) {
 
 
   });
-
-
-
-
 });
 
 router.post('/', function(req, res) {
@@ -39,6 +35,7 @@ router.post('/', function(req, res) {
 		photo: req.body.photo,
 		stock: req.body.stock
 	});
+
 
 	product.save(function(error, product) {
 		if(error) {
@@ -55,11 +52,8 @@ router.post('/', function(req, res) {
 				title: 'PRODUCTS',
 				products: productList
 			});
-
-
 		});
 	});
-
 
 });
 
